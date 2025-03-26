@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed - CraftyCommerce</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    
+    <div class="confirmation-container container">
+        <div class="confirmation-box">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" width="64" height="64">
+                    <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+            </div>
+            <h1>Order Confirmed!</h1>
+            <p class="confirmation-message">Thank you for your purchase. Your order has been successfully placed.</p>
+            
+            <div class="order-info">
+                <div class="order-number">
+                    <span>Order Number:</span>
+                    <strong id="orderNumber"></strong>
+                </div>
+                <div class="order-date">
+                    <span>Order Date:</span>
+                    <strong id="orderDate"></strong>
+                </div>
+            </div>
+
+            <div class="order-details">
+                <h2>Order Summary</h2>
+                <div class="confirmed-items">
+                    <!-- Will be populated dynamically -->
+                </div>
+                <div class="order-totals">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span class="subtotal-amount">$0.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Shipping</span>
+                        <span class="shipping-amount">$0.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Tax</span>
+                        <span class="tax-amount">$0.00</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span>Total</span>
+                        <span class="total-amount">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shipping-details">
+                <h2>Shipping Details</h2>
+                <div class="address-info" id="shippingAddress">
+                    <!-- Will be populated with shipping address -->
+                </div>
+                <div class="delivery-info">
+                    <p>Estimated Delivery Date: <strong id="estimatedDelivery"></strong></p>
+                </div>
+            </div>
+
+            <div class="confirmation-actions">
+                <button class="primary-button" onclick="window.location.href='/pages/account/order-history.html'">
+                    View Order History
+                </button>
+                <button class="secondary-button" onclick="window.location.href='/'">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/orderConfirmation.js"></script>
+</body>
+</html> 

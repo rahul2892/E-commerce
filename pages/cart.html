@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - CraftyCommerce</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+    <!-- Header (Same as index.html) -->
+    
+    <main class="container">
+        <div class="cart-page">
+            <h1>Your Shopping Cart</h1>
+            <div class="cart-layout">
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be dynamically loaded here -->
+                </div>
+                
+                <div class="cart-summary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="shipping">$5.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="total">$0.00</span>
+                        </div>
+                    </div>
+                    <button class="checkout-btn" id="checkoutButton">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../config/database.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            cartManager.renderCartPage();
+        });
+    </script>
+</body>
+</html>

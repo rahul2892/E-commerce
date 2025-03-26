@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CraftyCommerce</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1>Create Account</h1>
+            <div class="auth-options">
+                <button class="auth-toggle" onclick="location.href='login.html'">Login</button>
+                <button class="auth-toggle active">Register</button>
+            </div>
+            <form class="register-form" id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required minlength="2">
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" name="password" required minlength="6">
+                    <span class="error-message"></span>
+                    <div class="password-requirements">
+                        <p>Password must contain:</p>
+                        <ul>
+                            <li id="length">At least 6 characters</li>
+                            <li id="uppercase">One uppercase letter</li>
+                            <li id="number">One number</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password *</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group terms">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the <a href="../legal/terms.html">Terms & Conditions</a></label>
+                    <span class="error-message"></span>
+                </div>
+                <button type="submit" class="auth-button" id="registerButton">
+                    <span class="button-text">Create Account</span>
+                </button>
+            </form>
+            <div class="social-login">
+                <p>Or register with</p>
+                <div class="social-buttons">
+                    <button class="google-btn" onclick="auth.socialLogin('google')">
+                        <img src="../../assets/icons/google-icon.svg" alt="Google">
+                        Google
+                    </button>
+                    <button class="facebook-btn" onclick="auth.socialLogin('facebook')">
+                        <img src="../../assets/icons/facebook-icon.svg" alt="Facebook">
+                        Facebook
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../assets/js/register.js"></script>
+</body>
+</html> 

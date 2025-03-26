@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - CraftyCommerce</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    
+    <main class="container">
+        <div class="confirmation-page">
+            <div class="confirmation-card">
+                <h1>🎉 Order Confirmed!</h1>
+                <div class="confirmation-details">
+                    <p>Thank you for your purchase! Your order has been successfully placed.</p>
+                    <div class="order-summary">
+                        <h2>Order Summary</h2>
+                        <div id="orderItems"></div>
+                        <div class="total-amount">
+                            <span>Total Paid:</span>
+                            <span id="orderTotal">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="shipping-details">
+                        <h3>Shipping To:</h3>
+                        <p id="shippingAddress"></p>
+                    </div>
+                    <div class="confirmation-actions">
+                        <a href="../index.html" class="continue-shopping">Continue Shopping</a>
+                        <a href="../account/orders.html" class="view-orders">View Orders</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../config/database.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            cartManager.renderOrderConfirmation();
+            const shipping = db.getCollection('shipping');
+            if (shipping) {
+                document.getElementById('shippingAddress').textContent = `
+                    ${shipping.firstName} ${shipping.lastName}
+                    ${shipping.address}
+                    ${shipping.city}, ${shipping.state} ${shipping.zipCode}
+                `;
+            }
+        });
+    </script>
+</body>
+</html> 

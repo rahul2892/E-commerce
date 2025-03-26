@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - CraftyCommerce Admin</title>
+    <link rel="stylesheet" href="../../assets/css/admin-styles.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <div class="admin-title">ADMIN PANEL</div>
+            <nav class="admin-nav">
+                <a href="../../index.html">
+                    <img src="../../assets/icons/dashboard-icon.svg" alt="">
+                    <span>Dashboard</span>
+                </a>
+                <a href="../products/manage-products.html">
+                    <img src="../../assets/icons/products-icon.svg" alt="">
+                    <span>Products</span>
+                </a>
+                <a href="../orders/manage-orders.html">
+                    <img src="../../assets/icons/orders-icon.svg" alt="">
+                    <span>Orders</span>
+                </a>
+                <a href="manage-users.html" class="active">
+                    <img src="../../assets/icons/users-icon.svg" alt="">
+                    <span>Users</span>
+                </a>
+                <a href="../../../index.html">
+                    <img src="../../assets/icons/back-icon.svg" alt="">
+                    <span>Back to Store</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-wrapper">
+                <header class="content-header">
+                    <h1>User Management</h1>
+                    <button class="primary-btn" onclick="userManager.showAddModal()">
+                        <i class="fas fa-plus"></i> Add User
+                    </button>
+                </header>
+
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <input type="text" id="userSearch" placeholder="Search users...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="roleFilter">
+                            <option value="">All Roles</option>
+                            <option value="admin">Admin</option>
+                            <option value="vendor">Vendor</option>
+                            <option value="customer">Customer</option>
+                        </select>
+                        <select id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="banned">Banned</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="users-grid" id="userList">
+                    <!-- Users will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- User Modal -->
+    <div id="userModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add User</h2>
+                <button class="modal-close" onclick="userManager.closeModal()">&times;</button>
+            </div>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" required>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" required>
+                    <span class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role *</label>
+                    <select id="role" required>
+                        <option value="customer">Customer</option>
+                        <option value="vendor">Vendor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="banned">Banned</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="secondary-btn" onclick="userManager.closeModal()">Cancel</button>
+                    <button type="submit" class="primary-btn">Save User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../config/database.js"></script>
+    <script src="../../assets/js/user-management.js"></script>
+</body>
+</html> 

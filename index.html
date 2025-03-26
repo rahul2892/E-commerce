@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CraftyCommerce - Your marketplace for unique handcrafted goods">
+    <title>CraftyCommerce - Handcrafted Goods Marketplace</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container">
+                <span class="welcome-text" id="welcomeMessage">Welcome to CraftyCommerce!</span>
+                <div class="top-bar-right">
+                    <a href="pages/vendor/vendor-dashboard.html" class="vendor-link">Sell on CraftyCommerce</a>
+                    <a href="pages/support/contact.html">Help & Contact</a>
+                </div>
+            </div>
+        </div>
+        <nav class="nav-container container">
+            <div class="logo">
+                <a href="/">
+                    <img src="assets/images/logo.png" alt="CraftyCommerce Logo">
+                </a>
+            </div>
+            <div class="search-bar">
+                <div class="search-wrapper">
+                    <select class="category-select" id="categorySelect">
+                        <option value="all">All Categories</option>
+                        <option value="jewelry">Jewelry</option>
+                        <option value="home-decor">Home Decor</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="art">Art</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                    <input type="text" id="searchInput" placeholder="Search for handcrafted items...">
+                    <button type="button" class="search-button" onclick="performSearch()">
+                        <img src="assets/icons/search-icon.svg" alt="Search">
+                    </button>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <div class="account-dropdown">
+                    <button class="account-btn">
+                        <img src="assets/icons/user-icon.svg" alt="Account">
+                        My Account
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="pages/account/orders.html">
+                            <img src="assets/icons/orders-icon.svg" alt="Orders">
+                            My Orders
+                        </a>
+                        <a href="pages/account/settings.html">
+                            <img src="assets/icons/settings-icon.svg" alt="Settings">
+                            Settings
+                        </a>
+                        <hr>
+                        <a href="#" id="logoutBtn" onclick="auth.logout()">
+                            <img src="assets/icons/logout-icon.svg" alt="Logout">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+                <div class="cart-dropdown">
+                    <button class="cart-button">
+                        <img src="assets/icons/cart-icon.svg" alt="Cart">
+                        <span>Cart</span>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <div class="cart-preview">
+                        <div class="cart-items">
+                            <!-- Cart items will be populated here -->
+                        </div>
+                        <div class="cart-footer">
+                            <div class="cart-total">
+                                <span>Total:</span>
+                                <span class="total-amount">$0.00</span>
+                            </div>
+                            <a href="pages/cart.html" class="view-cart-btn">View Cart</a>
+                            <a href="pages/checkout.html" class="checkout-btn">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="category-nav">
+            <div class="container">
+                <ul class="category-menu">
+                    <li class="category-item">
+                        <button class="all-categories" onclick="toggleCategoryMenu()">
+                            <img src="assets/icons/menu-icon.svg" alt="Menu">
+                            All Categories
+                        </button>
+                        <div class="category-dropdown">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </li>
+                    <li><a href="pages/product-listing.html?category=jewelry">Jewelry</a></li>
+                    <li><a href="pages/product-listing.html?category=home-decor">Home Decor</a></li>
+                    <li><a href="pages/product-listing.html?category=clothing">Clothing</a></li>
+                    <li><a href="pages/product-listing.html?category=art">Art</a></li>
+                    <li><a href="pages/product-listing.html?category=accessories">Accessories</a></li>
+                    <li><a href="pages/deals.html" class="deals">Today's Deals</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Featured Categories -->
+    <section class="featured-categories">
+        <h2>Shop by Category</h2>
+        <div class="category-grid">
+            <!-- Category cards will be dynamically populated -->
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>All Products</h2>
+                <div class="sort-options">
+                    <select id="sortProducts" onchange="products.sortProducts()">
+                        <option value="newest">Newest First</option>
+                        <option value="priceLow">Price: Low to High</option>
+                        <option value="priceHigh">Price: High to Low</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-slider">
+            <!-- Testimonials will be dynamically populated -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>CraftyCommerce connects artisans with customers who appreciate handcrafted quality.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="pages/support/faq.html">FAQ</a></li>
+                    <li><a href="pages/support/contact.html">Contact Us</a></li>
+                    <li><a href="pages/support/return-policy.html">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <!-- Social media links -->
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CraftyCommerce. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="config/database.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/realtime-updates.js"></script>
+    <script src="assets/js/products.js"></script>
+</body>
+</html>

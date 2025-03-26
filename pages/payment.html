@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - CraftyCommerce</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <div class="payment-container">
+        <!-- Progress Steps -->
+        <div class="checkout-progress">
+            <div class="progress-step completed">
+                <span class="step-number">✓</span>
+                <span>Shipping</span>
+            </div>
+            <div class="progress-step active">
+                <span class="step-number">2</span>
+                <span>Payment</span>
+            </div>
+            <div class="progress-step">
+                <span class="step-number">3</span>
+                <span>Confirmation</span>
+            </div>
+        </div>
+
+        <!-- Main Payment Content -->
+        <div class="payment-content">
+            <h2>Select Payment Method</h2>
+            
+            <!-- Payment Methods Tabs -->
+            <div class="payment-methods-tabs">
+                <button class="method-tab active" data-method="card">
+                    <img src="../assets/icons/credit-card.svg" alt="Card">
+                    Credit/Debit Card
+                </button>
+                <button class="method-tab" data-method="upi">
+                    <img src="../assets/icons/upi.svg" alt="UPI">
+                    UPI Payment
+                </button>
+                <button class="method-tab" data-method="netbanking">
+                    <img src="../assets/icons/bank.svg" alt="NetBanking">
+                    Net Banking
+                </button>
+                <button class="method-tab" data-method="wallet">
+                    <img src="../assets/icons/wallet.svg" alt="Wallet">
+                    Wallets
+                </button>
+            </div>
+
+            <!-- Payment Method Contents -->
+            <div class="payment-methods-content">
+                <!-- Card Payment -->
+                <div class="method-content active" id="cardPayment">
+                    <form id="cardForm" class="payment-form">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate">Expiry Date</label>
+                                <input type="text" id="expiryDate" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="payment-button">Pay $<span id="cardPaymentAmount">0.00</span></button>
+                    </form>
+                    <div class="test-card-info">
+                        <h4>Test Card Details</h4>
+                        <p>Card Number: <strong>4111 1111 1111 1111</strong></p>
+                        <p>Expiry Date: <strong>12/34</strong></p>
+                        <p>CVV: <strong>123</strong></p>
+                    </div>
+                </div>
+
+                <!-- UPI Payment -->
+                <div class="method-content" id="upiPayment">
+                    <form id="upiForm" class="payment-form">
+                        <div class="upi-input">
+                            <label>Enter UPI ID</label>
+                            <input type="text" placeholder="username@upi" required>
+                        </div>
+                        <div class="upi-apps">
+                            <button type="button" class="upi-app-btn" data-app="gpay">
+                                <img src="../assets/icons/gpay.png" alt="Google Pay">
+                                <span>Google Pay</span>
+                            </button>
+                            <button type="button" class="upi-app-btn" data-app="phonepe">
+                                <img src="../assets/icons/phonepe.png" alt="PhonePe">
+                                <span>PhonePe</span>
+                            </button>
+                            <button type="button" class="upi-app-btn" data-app="paytm">
+                                <img src="../assets/icons/paytm.png" alt="Paytm">
+                                <span>Paytm</span>
+                            </button>
+                        </div>
+                        <button type="submit" class="payment-button">Pay with UPI</button>
+                    </form>
+                </div>
+
+                <!-- Net Banking -->
+                <div class="method-content" id="netbankingPayment">
+                    <form id="netbankingForm" class="payment-form">
+                        <div class="popular-banks">
+                            <h4>Popular Banks</h4>
+                            <div class="bank-options">
+                                <button type="button" class="bank-option" data-bank="sbi">
+                                    <img src="../assets/icons/sbi.png" alt="SBI">
+                                    <span>SBI</span>
+                                </button>
+                                <button type="button" class="bank-option" data-bank="hdfc">
+                                    <img src="../assets/icons/hdfc.png" alt="HDFC">
+                                    <span>HDFC</span>
+                                </button>
+                                <button type="button" class="bank-option" data-bank="icici">
+                                    <img src="../assets/icons/icici.png" alt="ICICI">
+                                    <span>ICICI</span>
+                                </button>
+                                <button type="button" class="bank-option" data-bank="axis">
+                                    <img src="../assets/icons/axis.png" alt="Axis">
+                                    <span>Axis</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="other-banks">
+                            <label>Other Banks</label>
+                            <select required>
+                                <option value="">Select Bank</option>
+                                <option value="kotak">Kotak Mahindra Bank</option>
+                                <option value="yes">Yes Bank</option>
+                                <option value="idfc">IDFC First Bank</option>
+                                <!-- Add more banks -->
+                            </select>
+                        </div>
+                        <button type="submit" class="payment-button">Pay with Net Banking</button>
+                    </form>
+                </div>
+
+                <!-- Wallets -->
+                <div class="method-content" id="walletPayment">
+                    <div class="wallet-options">
+                        <button class="wallet-option" data-wallet="paytm">
+                            <img src="../assets/icons/paytm.png" alt="Paytm">
+                            <span>Paytm</span>
+                        </button>
+                        <button class="wallet-option" data-wallet="phonepe">
+                            <img src="../assets/icons/phonepe.png" alt="PhonePe">
+                            <span>PhonePe</span>
+                        </button>
+                        <button class="wallet-option" data-wallet="amazonpay">
+                            <img src="../assets/icons/amazonpay.png" alt="Amazon Pay">
+                            <span>Amazon Pay</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary Sidebar -->
+        <div class="payment-sidebar">
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div id="orderItems"></div>
+                <div class="summary-totals">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shipping-summary">
+                <h3>Shipping Details</h3>
+                <div id="shippingAddress" class="shipping-address"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../config/database.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/payment.js"></script>
+</body>
+</html>

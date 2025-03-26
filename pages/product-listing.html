@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - CraftyCommerce</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+    <!-- Header will be the same as index.html -->
+    
+    <main class="container">
+        <div class="product-listing">
+            <aside class="filters">
+                <div class="filter-section">
+                    <h3>Categories</h3>
+                    <div class="filter-options" id="categoryFilters">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <h3>Price Range</h3>
+                    <div class="price-range">
+                        <input type="number" id="minPrice" placeholder="Min">
+                        <span>-</span>
+                        <input type="number" id="maxPrice" placeholder="Max">
+                        <button id="applyPrice">Apply</button>
+                    </div>
+                </div>
+                <!-- Add more filter sections as needed -->
+            </aside>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be populated dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <script src="../config/database.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/products.js"></script>
+    <script src="../assets/js/realtime-updates.js"></script>
+</body>
+</html>
