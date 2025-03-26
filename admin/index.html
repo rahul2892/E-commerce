@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - CraftyCommerce</title>
+    <link rel="stylesheet" href="../assets/css/admin-styles.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="admin-title">ADMIN PANEL</div>
+            <nav class="admin-nav">
+                <a href="index.html" class="active">
+                    <img src="assets/icons/dashboard-icon.svg" alt="">
+                    <span>Dashboard</span>
+                </a>
+                <a href="pages/products/manage-products.html">
+                    <img src="assets/icons/products-icon.svg" alt="">
+                    <span>Products</span>
+                </a>
+                <a href="pages/orders/manage-orders.html">
+                    <img src="assets/icons/orders-icon.svg" alt="">
+                    <span>Orders</span>
+                </a>
+                <a href="pages/users/manage-users.html">
+                    <img src="assets/icons/users-icon.svg" alt="">
+                    <span>Users</span>
+                </a>
+                <a href="pages/analytics/analytics.html">
+                    <img src="assets/icons/analytics-icon.svg" alt="">
+                    <span>Analytics</span>
+                </a>
+                <a href="../index.html">
+                    <img src="assets/icons/back-icon.svg" alt="">
+                    <span>Back to Store</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <h1>Dashboard Overview</h1>
+                
+                <!-- Stats Cards -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--admin-primary);">
+                            <img src="assets/icons/sales-icon.svg" alt="">
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Sales</h3>
+                            <div class="value">$12,845</div>
+                            <div class="trend">↑ 12.5% this month</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--admin-info);">
+                            <img src="assets/icons/orders-icon.svg" alt="">
+                        </div>
+                        <div class="stat-info">
+                            <h3>Orders</h3>
+                            <div class="value">248</div>
+                            <div class="trend">↑ 8.2% this week</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--admin-success);">
+                            <img src="assets/icons/users-icon.svg" alt="">
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Users</h3>
+                            <div class="value">1,257</div>
+                            <div class="trend">↑ 15.3% this month</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--admin-warning);">
+                            <img src="assets/icons/products-icon.svg" alt="">
+                        </div>
+                        <div class="stat-info">
+                            <h3>Products</h3>
+                            <div class="value">384</div>
+                            <div class="trend">↑ 5.7% this month</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Sales Overview</h3>
+                        </div>
+                        <canvas id="salesChart"></canvas>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Top Products</h3>
+                        </div>
+                        <canvas id="productsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list" id="activityList">
+                        <!-- Activity items will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../config/database.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/realtime-updates.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../assets/js/admin-dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            adminDashboard.loadDashboardData(); // Load accurate data on page load
+        });
+        // New event listener to update data when an order is confirmed
+        document.addEventListener('orderConfirmed', () => {
+            adminDashboard.loadDashboardData();
+        });
+    </script>
+</body>
+</html>
